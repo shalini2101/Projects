@@ -1,0 +1,3 @@
+{'custid': 100000, 'name': 'John', 'mob': '12345', 'add': 'USA'}
+{'custid': 100001, 'name': 'Jack', 'mob': '34512', 'add': 'UK'}
+
