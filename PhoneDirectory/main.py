@@ -43,7 +43,6 @@ def find_user():
     find_name = input("Enter Name to search :")
     with open(FILE_NAME) as ctx:
         line = ctx.readline()
-        
         while line:
             data = eval(line)
             if data['name'] == find_name:
@@ -70,16 +69,15 @@ def del_user():
         lines = fd.readlines()
         fd.seek(0)
         fd.truncate()
-        print(lines)
         for line in lines:
             ln = line.strip("\n")
             data = eval(ln)
-            print(data)
             if data['name'] == objDel or data['mob'] == objDel:
                 line = fd.readline()
                 continue
             fd.write(line)
             line = fd.readline()
+    display_all()
         
      
 if __name__ == '__main__' :
