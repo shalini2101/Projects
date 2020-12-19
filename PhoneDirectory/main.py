@@ -1,6 +1,6 @@
-import pickle
-import json
+import sys
 import pandas as pd
+from colorama import Fore, Back, Style 
 
 FILE_NAME ="subscriber_mob_directory.txt"
 
@@ -41,6 +41,7 @@ def add_user():
 
 def find_user():
     find_name = input("Enter Name to search :")
+    userFlag = False
     with open(FILE_NAME) as ctx:
         line = ctx.readline()
         while line:
@@ -48,8 +49,14 @@ def find_user():
             if data['name'] == find_name:
                 df = pd.DataFrame(data,index=[0])
                 print(df)
+                userFlag = True
 
             line = ctx.readline()
+    if userFlag == False:
+        print(Fore.RED+Style.BRIGHT+"User You are Looking for is not present in current Directory")
+        print(Style.RESET_ALL)
+
+        
         
 def display_all():
     print('+----------- All Users ------------+')
@@ -69,14 +76,24 @@ def del_user():
         lines = fd.readlines()
         fd.seek(0)
         fd.truncate()
+        userFlag = False
         for line in lines:
             ln = line.strip("\n")
             data = eval(ln)
             if data['name'] == objDel or data['mob'] == objDel:
                 line = fd.readline()
+                print(Fore.GREEN +"User {} Deleted Successfully".format(data['name']))
+                print(Style.RESET_ALL)
+                userFlag = True
                 continue
             fd.write(line)
             line = fd.readline()
+    if userFlag == False:
+        print(Fore.RED+Style.BRIGHT+"User You are Looking for is not present in current Directory")
+
+        print(Style.RESET_ALL)
+        return
+        
     display_all()
         
      
@@ -93,5 +110,9 @@ if __name__ == '__main__' :
             del_user()
         elif op == 4:
             display_all()
+        elif op == 0:
+            print("See You Again...")
+            sys.exit(0)
         else:
-            print("Wrong Choice")
+            print(Fore.RED +Style.BRIGHT+"Wrong Choice")
+            print(Style.RESET_ALL)
