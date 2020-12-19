@@ -1,0 +1,30 @@
+{
+"ClientList":["Client1","Client2","Client3"],
+"ClientDB":"clientdb",
+"Client1":{
+	"Name":"Tom",
+	"Mobile":"1234567890",
+    "IP":"127.0.0.1",
+	"Port":22221,
+	"contactsTable":"contact_1234567890",
+	"mainTable":"usr_1234567890"
+	},
+"Client2":
+{
+	"Name":"John",
+	"Mobile":"2345678901",
+    "IP":"127.0.0.1",
+	"Port":22222,
+	"contactsTable":"contact_2345678901",
+	"mainTable":"usr_2345678901"
+},
+"Client3":
+{
+	"Name":"James",
+	"Mobile":"3456789012", 
+    "IP":"127.0.0.1",
+	"Port":22223,
+	"contactsTable":"contact_3456789012",
+	"mainTable":"usr_3456789012"
+}
+}
